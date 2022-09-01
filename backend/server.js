@@ -31,6 +31,7 @@ connection.once("open", () => {
   console.log("Mongo DB Connection success");
 });
 
+// User routes
 const userRouter = require("./src/routes/User");
 app.use('/user',userRouter)
 
