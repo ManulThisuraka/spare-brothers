@@ -54,6 +54,7 @@ app.use('/make', PaymentAPI())
 const WishlistItems = require("./routes/wishlistRouter");
 app.use('/wishlist',WishlistItems);
 
+//Product Router
 app.use('/product',productRouter)
 
 const CartItems = require("./routes/cartRouter");
