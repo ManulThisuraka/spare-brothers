@@ -1,0 +1,105 @@
+.page-title{
+    font-size: 50px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 350px;
+}
+
+.form-background{
+
+
+}
+
+.completion-info{
+
+}
+
+.margin-adjust{
+    margin: 3% 5% 5% 20%;
+}
+
+.completion-form{
+    height: auto;
+    width: 500px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 11px;
+    padding: 15%;
+    margin-top: 20%;
+}
+
+.completion-form h4{
+    color: white;
+    font-size: 28px;
+    text-align: left;
+    width: 80%;
+    font-weight: 500;
+}
+
+.completion-text{
+    margin: 8% 0;
+}
+
+.completion-button{
+    text-align: right;
+
+}
+
+.completion-card{
+    width: 350px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 11px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 5% 0%;
+    z-index: 1;
+    display: flex;
+    padding: 2% 5%;
+}
+
+.completion-title{
+    flex: 8;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.completion-title span{
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.completion-buttons{
+    flex: 1;
+}
+
+.completion-buttons div{
+    position: absolute;
+    right: 4%;
+}
+
+.completion-section{
+    height: 770px;
+    overflow: auto;
+    margin-top: 3% !important;
+    position: relative;
+    left: 15%;
+}
+
+.rider-form{
+    height: 560px;
+    width: 500px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 11px;
+    padding: 5%;
+    margin-top: 20%;
+}
+
+.rider-profile{
+    height: auto;
+    width: 500px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 11px;
+    padding: 5%;
+    margin-top: 20%;
+}
