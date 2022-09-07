@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  background-color: #252F52;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-custom{
+  background-color: #252F52 !important;
+  color: #fff !important;
+}
+
+.logo-image{
+  height: 40px;
+  width: auto;
+  margin: 0;
+}
+
+@media screen and (max-width:1533px) {
+  .logo-image{
+    height: 30px;
+  }
+}
+
+::-webkit-scrollbar{
+  width: 7px;
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A12234;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FA334E;
+}
