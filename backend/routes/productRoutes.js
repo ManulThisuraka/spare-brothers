@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let Products = require('../models/productModel');
 
-
+//Add route
 router.route("/add").post((req,res)=>{
     if(req.body){
         const product = new Products(req.body);

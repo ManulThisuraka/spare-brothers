@@ -1,0 +1,36 @@
+.preview-image{
+    background-image: url("../images/LoginBackground.jpg");
+    background-size: cover;
+    height: 91.5vh;
+    width: auto;
+}
+
+.reg-background{
+    background-image: url("../images/RegistarionBackground.jpg");
+    background-size: cover;
+    height: 91.5vh;
+    width: auto;
+}
+
+.form-labels{
+    color: white;
+    text-align: left;
+}
+
+.input-form{
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(30px);
+    border-radius: 11px;
+    padding: 10%;
+}
+
+.input-form-frame{
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(30px);
+    border-radius: 11px;
+    padding: 3%;
+}

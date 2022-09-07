@@ -1,0 +1,177 @@
+.item-card{
+    width: 350px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 11px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 5% 0%;
+    z-index: 1;
+}
+
+.red-square{
+    background-color: #FA334E !important;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quentity{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.price{
+    padding: 2% 2%;
+    background-color: #FA334E;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.cart-image{
+    position: relative;
+    width: auto; 
+    height: 75px;
+    left: 10%;
+    top: 5%;
+    border-radius: 11px;
+}
+
+.cart-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cart-desc{
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.cart-details{
+    padding-top: 5%;
+    text-align: left;
+    
+}
+
+.cart-background{
+    position:absolute; 
+    bottom: 0%; 
+    left: 0%; 
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.item-list{
+    overflow: auto;
+    height: 450px;
+    width: 500px;
+}
+
+.items-title{
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.top-section{
+    margin: 15% 0% 10% !important;
+    text-align: left;
+}
+
+.price-list{
+    color: #B7B6B6;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 10%;
+}
+
+.price-items{
+    margin: 6% 0;
+    text-align: left;
+}
+
+.pay-button{
+    text-align: right;
+    margin-top: 20%;
+}
+
+.total-fee{
+    font-size: 25px;
+    color: white;
+    font-weight: 500;
+    margin-top: 10% !important;
+}
+
+.price-tag{
+    background-color: #FA334E;
+    padding: 3%;
+    border-radius: 9px;
+}
+
+.receipt{
+    margin-top: 20% !important;
+}
+
+.cart-background-right{
+    position:absolute;
+    bottom: 0%;
+    right: 0%;
+    opacity: 0.4;
+    z-index: -1;
+    height: 80%;
+    width: auto;
+}
+
+.search-box{
+    display: flex;
+    transform: translate(-50%, -50%);
+    background: #252F52;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    position: relative;
+    top: 35%;
+}
+
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-button {
+    background: #252F52;
+    color: white;
+}
+
+.search-button {
+    border-radius: 50%;
+    background: #252F52;
+    transition: 0.4s;
+    color: #252F52;
+    cursor: pointer;
+}
+
+.search-button > UilSearch {
+    font-size: 30px;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    font-weight: 500;
+}
