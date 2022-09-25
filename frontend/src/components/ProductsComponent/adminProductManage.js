@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid, TextField, Button, Tooltip } from '@material-ui/core';
 
+
 import EventPosts from '../ProductsComponent/products/AdminAllProducts';
 import EventForm from '../ProductsComponent/products/form/productManageForm';
 import Styles from './styles';
@@ -62,7 +63,6 @@ const ManageProducts = () => {
                             </div>
 
                             <div className='col-lg-6' style={{ textAlign: 'right' }}>
-                            <Tooltip title="Search item by name">
                                 <TextField style={{ color: 'white', background: 'white', width: '300px' }}
                                     id="outlined-basic"
                                     label="Search"
@@ -72,7 +72,6 @@ const ManageProducts = () => {
                                     onChange={(e) => { setSearchTerm(e.target.value) }}
 
                                 />
-                            </Tooltip>
                             </div>
 
                         </div>

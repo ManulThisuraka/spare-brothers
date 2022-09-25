@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from './adminStyles'
-import {Card,CardActions,CardContent,CardMedia,Button,Typography, Divider,Tooltip } from '@material-ui/core';
+import {Card,CardActions,CardContent,CardMedia,Button,Typography, Divider } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import DeleteIcon from '@material-ui/icons/Delete'
 import {useDispatch}  from 'react-redux';
@@ -93,9 +93,8 @@ const ProductCard = ({post,setCurrentId})=>{
                     boxShadow:"0px 0px 6px rgba(0,0,0,0.5)",
                     backgroundColor: '#FA334E'
                 }}>
-                  <Tooltip title="Click delete button">
                 <DeleteIcon fontSize = "default" style={{position:"absolute", top:"18%", left:"18%"}} />
-                </Tooltip>
+                    
                 {handleClickOpen}
 
                     
@@ -120,16 +119,12 @@ const ProductCard = ({post,setCurrentId})=>{
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-        <Tooltip title="Click if you do not want to delete">
           <Button onClick={handleClose} style={{color:'white',background:'red'}} autoFocus>
             No
           </Button>
-          </Tooltip>
-          <Tooltip title="Click if you want to delete">
           <Button onClick={()=>EventDispatch(deleteproduct(post._id),window.location.reload(false))} style={{color:'white',background:'blue'}} >
             Yes
           </Button>
-          </Tooltip>
         </DialogActions>
       </Dialog>
 

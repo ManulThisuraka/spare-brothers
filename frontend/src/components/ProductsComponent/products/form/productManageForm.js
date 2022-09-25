@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from  'react';
 import Styles from './styles';
-import {TextField,Button,Typography,Paper, FormHelperText, Tooltip} from '@material-ui/core';
+import {TextField,Button,Typography,Paper, FormHelperText} from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import {useDispatch,useSelector} from 'react-redux';
 import {postProduct,patchProduct} from '../../../../actions/productAction'
 import axios from "axios";
-
  
 const ProductForm = ({currentId})=>{
     const classes = Styles();
@@ -94,7 +93,6 @@ return(
         
     <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
     <Typography variant="h6">{currentId ? 'Edit' :'Add'} Item </Typography>
-    <Tooltip title="Enter item name">
         <TextField name ='product' 
         variant="outlined"
         label="Item Name"
@@ -102,9 +100,8 @@ return(
         value={productData.product}
         onChange={(e) =>setProductdata({...productData, product : e.target.value })}
         />
-    </Tooltip>
 
-    <Tooltip title="Enter Amount">
+
         <TextField name ='price' 
         variant="outlined"
         label="Amount"
@@ -117,9 +114,6 @@ return(
     
     }}
         />
-        </Tooltip>
-
-        <Tooltip title="Available Quantity">
         <TextField name ='availableQty' 
         variant="outlined"
         label="Available Quantity"
@@ -130,9 +124,8 @@ return(
             setHelperText(' ');
             setProductdata({...productData, availableQty : e.target.value})}}
         />
-        </Tooltip>
 
-        <Tooltip title="Minimum Quantity">
+        
         { <TextField name ='minimumQty' 
         variant="outlined"
         label= "Minimum Quantity"
@@ -145,9 +138,8 @@ return(
         
     }
         /> }
-        </Tooltip>
 
-        <Tooltip title="Choose relevant category">
+
 <select 
 
 name ='category'
@@ -170,9 +162,8 @@ onChange={(e) =>{
 <option value="Vehicle Body">Vehicle Body</option>
 
 </select>
-</Tooltip>
 
-<Tooltip title="Choose relevant measuring unit">
+
 <select 
 
 name ='mesuringUnit'
@@ -192,7 +183,6 @@ onChange={(e) =>setProductdata({...productData, mesuringUnit : e.target.value })
 <option value="g">Gram</option>
 
 </select>
-</Tooltip>
 
 
         <div className={classes.fileInput}>
