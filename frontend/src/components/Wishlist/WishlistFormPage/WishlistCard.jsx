@@ -35,7 +35,8 @@ export default function WishlistCard(props){
                 <div className="card-title" onClick={() => { selectedCard(props.id) }}>
                     <h5>{props.name}</h5>
                     <span>{props.despriction} </span>
-                    <div>Quantity - {props.qty} </div>
+                    <span>{props.category} </span>
+                    {/* <div>Quantity - {props.qty} </div> */}
                 </div>
                 <div className="card-buttons">
                     <div className="red-square" style={{top:"10%"}}>
