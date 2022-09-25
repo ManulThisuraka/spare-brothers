@@ -159,6 +159,19 @@ const viewOrders = async (req, res) => {
   }
 };
 
+const deleteOrders = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await OrderModel.findByIdAndRemove({ _id: id }).then((data) => {
+      console.log(data);
+      res.send(data);
+    });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
 module.exports = {
   createOrder,
   getAllOrders,
@@ -169,4 +182,5 @@ module.exports = {
   getCount2,
   payedOrders,
   viewOrders,
+  deleteOrders,
 };
