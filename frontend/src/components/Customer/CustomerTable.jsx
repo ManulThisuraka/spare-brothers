@@ -9,8 +9,22 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CustomerDelete from "./CustomerDelete/CustomerDelete";
+import { Grid, CircularProgress } from "@material-ui/core";
+import { useSelector } from "react-redux";
 import { UilSearch } from "@iconscout/react-unicons";
-import { Card, Col, Container, Row, CardBody, Label, Input } from "reactstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Row,
+  CardBody,
+  Label,
+  Input,
+  Button,
+} from "reactstrap";
+
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -35,7 +49,8 @@ export default function CustomerTable() {
   let count = 0;
   const [getsearch, SetSearch] = useState("");
   const classes = useStyles();
-  const [customerList, setCustomers] = useState([]);
+  const [customerList, setCustomers] = useState([{}]);
+  //const customerList = useSelector((state) => state.ProductReducer);
 
   useEffect(() => {
     let config = {
@@ -49,7 +64,7 @@ export default function CustomerTable() {
         .get("http://localhost:8070/user/getAllCustomers", config)
         .then((response) => {
           setCustomers(response.data);
-          console.log(response.data);
+          console.log("RESPONSE******", response.data);
         })
         .catch((error) => {
           alert(error);
@@ -59,7 +74,29 @@ export default function CustomerTable() {
     getRiderList();
   }, [getsearch]);
 
-  return (
+  // Generate PDF
+
+  const downloadPDF = () => {
+    console.log("kkkkk", customerList);
+    const doc = new jsPDF();
+    doc.text("Customer Details Report", 20, 10);
+    doc.autoTable({
+      columns: [
+        { header: "Customer ID", dataKey: "_id" },
+        { header: "User Name", dataKey: "username" },
+        { header: "Email", dataKey: "email" },
+        { header: "Role", dataKey: "usertype" },
+      ],
+
+      body: customerList,
+    });
+
+    doc.save("CustomerDetailsReport.pdf");
+  };
+
+  return !customerList.length ? (
+    <CircularProgress />
+  ) : (
     <div>
       <Row className="mb-4-sm">
         <Col sm={9} className="mb-4-sm"></Col>
@@ -75,7 +112,23 @@ export default function CustomerTable() {
             placeholder="Search By Email"
             style={{ textAlign: "left" }}
           />
-        </Col>
+        </Col>{" "}
+        <br />
+        <div style={{ width: "100px" }}>
+          <div style={{ marginLeft: "0px" }}>
+            <Button
+              style={{
+                color: "black",
+                background: "white",
+                marginRight: "-10%",
+                width: "300px",
+              }}
+              onClick={downloadPDF}
+            >
+              Download Report
+            </Button>
+          </div>
+        </div>
         <div></div>
       </Row>
       <br />
@@ -107,50 +160,3 @@ export default function CustomerTable() {
     </div>
   );
 }
-
-// import React , {useState} from 'react'
-// import MaterialTable from 'material-table'
-
-// export default function CustomerTable(){
-//     const [tableData, setTableData] = useState([
-//         {name:"A",email:"fafda@gmail",phone:147121510,age:null,gender:"M",city:"chennai",fee:78873},
-//         {name:"B",email:"fsagf@gmail",phone:147121510,age:26,gender:"M",city:"chennai",fee:78873},
-//         {name:"C",email:"etjba@gmail",phone:147121510,age:24,gender:"F",city:"chennai",fee:78873},
-//         {name:"D",email:"lkjnljna@gmail",phone:147121510,age:33,gender:"F",city:"chennai",fee:78873},
-//         {name:"E",email:"ounhpun@gmail",phone:147121510,age:33,gender:"F",city:"chennai",fee:78873},
-//         {name:"G",email:"fkjm@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"F",email:"gdagkma@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"O",email:"gdahgada@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"L",email:"ehyfdbsda@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"W",email:"eojpona@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"S",email:"eo[ij0[@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"Q",email:"lkjnh@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"X",email:"iuhg98y@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"Z",email:"ouybvy@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"V",email:"p97hg@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"G",email:"foygtbv@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"R",email:"poiytf@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873},
-//         {name:"T",email:"ljhg@gmail",phone:147121510,age:33,gender:"M",city:"chennai",fee:78873}
-//     ])
-
-// const column = [
-//     {title:"Name",field:"name" , align:"left",filterPlaceholder:"Filter By Name"},
-//     {title:"Email",field:"email" ,align:"left",filterPlaceholder:"Filter By Email"},
-//     {title:"Phone Number",field:"phone" ,align:"left",filtering:false},
-//     {title:"Age",field:"age",emptyValue:()=><em>null</em>,align:"left",filtering:false},
-//     {title:"Gender",field:"gender",align:"left",lookup:{M:"Male",F:"Female"},filterPlaceholder:"Filter By Gender"},
-//     {title:"City",field:"city",align:"left",filtering:false},
-//     {title:"School Fee",field:"fee",align:"left",type:"currency",currencySetting:{currencyCode:"LKR"},filtering:false}
-// ]
-
-//     return(
-//         <div className="App">
-//             <MaterialTable columns={column} data={tableData} title={"My Information"}
-//             onSelectionChange={(row)=>console.log(row.map(e=>(console.log(e.name))))}
-//             options={{filtering:true,pageSizeOptions:[2,5],pageSize:5,paginationType:"stepped",selection:true,showSelectAllCheckbox:false,showTextRowsSelected:false
-//             }}/>
-
-//         </div>
-//     )
-
-// }
