@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid, TextField, Button } from '@material-ui/core';
+import { Container, AppBar, Typography, Grow, Grid, TextField, Button, Tooltip } from '@material-ui/core';
+
 
 import EventPosts from '../ProductsComponent/products/AdminAllProducts';
 import EventForm from '../ProductsComponent/products/form/productManageForm';
@@ -71,7 +72,6 @@ const ManageProducts = () => {
                                     onChange={(e) => { setSearchTerm(e.target.value) }}
 
                                 />
-
                             </div>
 
                         </div>
