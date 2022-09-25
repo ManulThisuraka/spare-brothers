@@ -64,7 +64,6 @@ export default function CustomerTable() {
         .get("http://localhost:8070/user/getAllCustomers", config)
         .then((response) => {
           setCustomers(response.data);
-          console.log("RESPONSE******", response.data);
         })
         .catch((error) => {
           alert(error);
