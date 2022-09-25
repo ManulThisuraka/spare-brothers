@@ -114,7 +114,6 @@ return(
     
     }}
         />
-
         <TextField name ='availableQty' 
         variant="outlined"
         label="Available Quantity"
@@ -184,7 +183,6 @@ onChange={(e) =>setProductdata({...productData, mesuringUnit : e.target.value })
 <option value="g">Gram</option>
 
 </select>
-
 
 
         <div className={classes.fileInput}>
